@@ -1,0 +1,3 @@
+[submodule "binstall"]
+	path = binstall
+	url = https://github.com/RagingTiger/binstall
