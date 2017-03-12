@@ -30,4 +30,11 @@ projects -i
 Now you can start adding project directories to your list of projects!
 
 ## Usage
-`TODO`
+```
+    projects         Same as 'projects -l' option
+    projects -l      Lists all current/deleted projects
+    projects -i      Initializes a '.projectsrc' directory in $HOME
+    projects -r      Removes '.projectsrc' directory
+    projects -c      Create new project entry for a directory
+    projects -h      Prints this help message
+```
