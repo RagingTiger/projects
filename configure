@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+install() {
+  # run binstall locally
+  binstall/binstall.sh projects.sh
+}
+
+
+# run main
+install
