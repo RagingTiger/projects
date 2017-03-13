@@ -31,10 +31,13 @@ Now you can start adding project directories to your list of projects!
 
 ## Usage
 ```
-    projects         Same as 'projects -l' option
-    projects -l      Lists all current/deleted projects
-    projects -i      Initializes a '.projectsrc' directory in $HOME
-    projects -r      Removes '.projectsrc' directory
-    projects -c      Create new project entry for a directory
-    projects -h      Prints this help message
+  projects                  Same as 'projects -l' option
+  projects -l               Lists all project links
+  projects -i               Initializes a '.projectsrc' directory in $HOME
+  projects -r               Removes '.projectsrc' directory
+  projects -c [path/to/dir] Create new entry for dir (dir default is \$PWD)
+  projects -h               Prints this help message
+  projects <prodir>         Opens prodir in subshell
+  projects <prodir> -t      Opens prodir in new terminal window
+  projects <prodir> -d      Deletes prodir from list
 ```
