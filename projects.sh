@@ -35,6 +35,12 @@ deref_link() {
   echo "$($homedir/links/$1)"
 }
 
+pro_cd() {
+  # open sub shell into cd
+  cd $1
+  exec $SHELL
+}
+
 pro_help() {
   # print help info
   echo "$usage"
@@ -49,10 +55,15 @@ pro_term() {
   fi
 }
 
-pro_cd() {
-  # open sub shell into cd
-  cd $1
-  exec $SHELL
+pro_list() {
+  # list out prodir
+  if chk_homedir; then
+    for i in $(ls "$homedir/links"); do
+      echo "$i"
+    done
+  else
+    echo $notfound
+  fi
 }
 
 pro_remove() {
@@ -114,17 +125,6 @@ pro_init() {
 
     # add source command to .$SHELL.rc
     :
-  fi
-}
-
-pro_list() {
-  # list out prodir
-  if chk_homedir; then
-    for i in $(ls "$homedir/links"); do
-      echo "$i"
-    done
-  else
-    echo $notfound
   fi
 }
 
