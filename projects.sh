@@ -82,7 +82,7 @@ pro_navigate() {
     if exists $propath -d; then
       case $2 in
         "-t"|"term") pro_term $propath ;;
-        "-r"|"remove") prodir_file_remove $propath $1 ;;
+        "-d"|"delete") prodir_file_delete $propath $1 ;;
         *) pro_cd $propath;;
       esac
 
@@ -151,7 +151,7 @@ prodir_file_create() {
   ln $prpath "$homedir/links/$plink"
 }
 
-prodir_file_remove() {
+prodir_file_delete() {
   prpath="$1/.projectdir"
   # delete projectdir file
   rm $prpath
