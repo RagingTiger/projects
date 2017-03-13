@@ -11,7 +11,7 @@ notfound="No projects home directory found. To create one run: projects -i"
 usage="Usage:
     projects                  Same as 'projects -l' option
     projects -l               Lists all project links
-    projects -i               Initializes a '.projectsrc' directory in $HOME
+    projects -i               Initializes a '.projectsrc' directory in \$HOME
     projects -r               Removes '.projectsrc' directory
     projects -c [path/to/dir] Create new entry for dir (dir default is \$PWD)
     projects -h               Prints this help message
