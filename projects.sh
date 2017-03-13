@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Author: John D. Anderson
+# Email: jander43@vols.utk.edu
+# Description: Manage all your projects with the power fo the Unix $SHELL
+
 # globals
 cloneterm_url="https://github.com/RagingTiger/cloneterm"
 homedir="$HOME/.projectsrc"
