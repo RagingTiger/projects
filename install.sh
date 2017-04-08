@@ -35,7 +35,9 @@ check_rcdir() {
 
     # check answer
     case "$answer" in
-      Y) rm_old && echo "Please rerun install command" && exit ;;
+      Y) rm_old && echo ".projecstrc removed, now rerun install"
+         exit
+         ;;
       *) exit
     esac
   else
@@ -54,10 +56,11 @@ main() {
   gen_zshrc
 
   # then clone projects src to .projectsrc dir
-  git clone --recursive "${repo_url}"
+  local srcdir="$(basename ${repo_url})-gitrepo"
+  git clone --recursive "${repo_url}" "${srcdir}"
 
   # enter git repo
-  cd "$(basename ${repo_url})"
+  cd "${srcdir}"
 
   # run binstall
   binstall/binstall.sh projects.sh
