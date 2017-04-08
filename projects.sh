@@ -136,22 +136,8 @@ pro_navigate() {
 }
 
 pro_init() {
-  # check if exists
-  if chk_homedir; then
-    echo "Projects home directory already exists"
-  else
-    # create if not found
-    echo "Creating projects home directory at: $homedir"
-
-    # make directories
-    mkdir $homedir && mkdir $homedir/links
-
-    # add alias file
-    :
-
-    # add source command to .$SHELL.rc
-    :
-  fi
+  # return path to init script
+  echo "${homedir}/projects-gitrepo/_completions/init.sh"
 }
 
 pro_link() {

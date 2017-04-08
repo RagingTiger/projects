@@ -10,6 +10,7 @@ if [[ -n "$PROMPT_POSTFIX" ]]; then
   export PS1="${newline}${PROMPT_POSTFIX}${newline}${PS1}"
 fi'
 repo_url="https://github.com/RagingTiger/projects"
+rctab_cmp='which projects > /dev/null && . $( projects -i )'
 rcdir=$"$HOME/.projectsrc"
 
 # funcs
@@ -45,6 +46,40 @@ check_rcdir() {
   fi
 }
 
+
+tab_comp() {
+  # check shell rc file
+  local shellrc="$HOME/.$(basename $SHELL)rc"
+  if [[ -f "$shellrc" ]]; then
+    # check rc file
+    if cat "$shellrc" | grep "${rctab_cmp}"; then
+      # pass
+      :
+
+    else
+      # ask to setup tab complete
+      local answer=
+      printf "Do you want to setup tab complete (recommended)? [Y/n]: "
+      read answer
+
+      # check answer
+      case "$answer" in
+        Y)
+          echo "Adding ${rctab_cmp} to your ${shellrc} file ..."
+          echo "${rctab_cmp}" >> "${shellrc}"
+          ;;
+        *)
+          # do nothing
+          :
+         ;;
+      esac
+    fi
+
+  else
+    echo "No shell rc file found"
+  fi
+}
+
 main() {
   # first make .projectsrc dir
   check_rcdir
@@ -64,6 +99,9 @@ main() {
 
   # run binstall
   binstall/binstall.sh projects.sh
+
+  # install tab complete
+  tab_comp
 }
 
 # run main
