@@ -50,15 +50,17 @@ pro_subshell() {
   if [[ -n "$PROMPT_POSTFIX" ]]; then
     local NEW_POSTFIX="${PROMPT_POSTFIX}:$(basename $1)"
   else
-    local newline=$'\n'
-    local NEW_POSTFIX="${newline}<Projects> $(basename $1)"
+    local NEW_POSTFIX="<Projects> $(basename $1)"
   fi
 
   # findout which shell and start new shell with prompt postfix
   local subshell=$(basename $SHELL)
   case $subshell in
     zsh)
+      # update prompt for sub projects
       export PROMPT_POSTFIX="%F{yellow}${NEW_POSTFIX}"
+      # switch to different .zshrc file
+      export ZDOTDIR="$HOME/.projectsrc"
       $SHELL
       ;;
   esac
