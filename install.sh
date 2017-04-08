@@ -67,7 +67,6 @@ tab_comp() {
         Y)
           echo "Adding ${rctab_cmp} to your ${shellrc} file ..."
           echo "${rctab_cmp}" >> "${shellrc}"
-          . "${shellrc}"
           ;;
         *)
           # do nothing
