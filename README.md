@@ -1,4 +1,3 @@
-# projects
 <p align="center">
   <img src="https://github.com/RagingTiger/gifs/raw/fe968e99fa0d5c27ed1b6a65814d459fd26f305d/projects.gif"/>
 </p>
