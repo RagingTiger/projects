@@ -95,7 +95,7 @@ pro_list() {
 pro_remove() {
   if chk_homedir; then
     # prompt for reconsider
-    answer=
+    local answer=
     echo -n "Are you sure you want to delete? [Y\n]: "
     read answer
 
@@ -113,7 +113,7 @@ pro_navigate() {
   # check link existence
   if exists "$homedir/links/$1" -e; then
     # now get path to project
-    propath=$(deref_link $1)
+    local propath=$(deref_link $1)
 
     # check path
     if exists $propath -d; then
@@ -156,8 +156,8 @@ pro_init() {
 
 pro_link() {
   # operate on path
-  dir=$(dirname $1)
-  base=$(basename $dir)
+  local dir=$(dirname $1)
+  local base=$(basename $dir)
 
   # check for links
   if [ -e "$homedir/links/$base" ]; then
@@ -168,11 +168,11 @@ pro_link() {
 }
 
 prodir_file_create() {
-  prpath="$1/.projectdir"
+  local prpath="$1/.projectdir"
   # create file
   touch $prpath && chmod +x $prpath && echo "$(template $prpath)" > $prpath
   # get link name
-  plink=$(pro_link $prpath)
+  local plink=$(pro_link $prpath)
   # create link
   ln $prpath "$homedir/links/$plink"
 }
