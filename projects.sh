@@ -15,6 +15,7 @@ usage="Usage:
     projects -r               Removes '.projectsrc' directory
     projects -c [path/to/dir] Create new entry for dir (dir default is \$PWD)
     projects -h               Prints this help message
+    projects -u               Updates 'projects' to most recent version
     projects <prodir>         Opens prodir in subshell
     projects <prodir> -t      Opens prodir in new terminal window
     projects <prodir> -d      Deletes prodir from list"
@@ -193,12 +194,29 @@ pro_create() {
   fi
 }
 
+pro_update() {
+  # cd to git repo
+  cd "${homedir}/projects-gitrepo"
+
+  # update git
+  git pull master origin
+
+  # run binstall to remove old projects
+  binstall/binstall.sh -r projects
+
+  # now create new one
+  binstall/binstall.sh projects.sh
+
+  # finished
+  echo "Update complete"
+}
 
 # run main
 if [ -z "$1" ]; then
   pro_list
 else
   case "$1" in
+    "-u") pro_update ;;
     "-i") pro_init ;;
     "-r") pro_remove ;;
     "-l") pro_list ;;
