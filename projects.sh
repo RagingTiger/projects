@@ -199,7 +199,7 @@ pro_update() {
   cd "${homedir}/projects-gitrepo"
 
   # update git
-  git pull master origin
+  git pull origin master
 
   # run binstall to remove old projects
   binstall/binstall.sh -r projects
