@@ -11,9 +11,8 @@ information about the project (i.e. todolists, notes, etc...)
 
 ## Install
 <p align="center">
-  <img src=""/>
+  <img src="https://github.com/RagingTiger/gifs/raw/be6541adf942b60917f4864bce256220c180e740/projects_install.gif"/>
 </p>
-
 
 As the above GIF shows, to install you want to copy the text below into a
 terminal (excluding the '$' symbol):
