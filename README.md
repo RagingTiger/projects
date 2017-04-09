@@ -27,7 +27,6 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/RagingTiger/projects/e62
 ```
   projects                  Same as 'projects -l' option
   projects -l               Lists all project links
-  projects -r               Removes '.projectsrc' directory
   projects -c [path/to/dir] Create new entry for dir (dir default is $PWD)
   projects -h               Prints this help message
   projects -u               Updates 'projects' to most recent version

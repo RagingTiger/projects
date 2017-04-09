@@ -217,7 +217,6 @@ else
   case "$1" in
     "-u") pro_update ;;
     "-i") pro_init ;;
-    "-r") pro_remove ;;
     "-l") pro_list ;;
     "-h") pro_help ;;
     "-c") pro_create "$2" ;;
