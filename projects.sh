@@ -109,6 +109,11 @@ pro_remove() {
   fi
 }
 
+# function to cd on $propath
+pro_cd() {
+  cd $1
+}
+
 pro_navigate() {
   # check link existence
   if exists "$homedir/links/$1" -e; then
@@ -120,7 +125,7 @@ pro_navigate() {
       case $2 in
         "-t"|"term") pro_term $propath ;;
         "-d"|"delete") prodir_file_delete $propath $1 ;;
-        *) pro_subshell $propath $1;;
+	*) pro_cd $propath ;;
       esac
 
     # link is broken
